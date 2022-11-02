@@ -92,3 +92,32 @@ print(a)
 
 # A2 = Avtale("Fotball", "Drammen", "placeholder", 90)
 # print(A2)
+
+
+#l
+
+def menu ():
+    print("[1] Lese inn avtale.")
+    print("[2] Skrive inn avtale til fil.")
+    print("[3] Skrive inn ny avtale")
+    print("[4] Skrive ut alle avtaler.)
+    print("[5] Avslutte programmet")
+
+    print("Du må ta valgene til venstre for å velge et alternativ")
+
+menu()
+optioin = int(input("Skriv inn ditt alternatv:"))
+
+while option !=0:
+    if option == 1:
+        print("Du har valgt alternativ 1 - (Lese inn avtale)")
+    elif option == 2:
+        print("Du har valgt alternativ 2 - (Skrive inn avtale til fil)")
+    elif option == 3:
+        print("Du har vlagt alternativ 3 - (Skrive inn ny avtale)")
+    elif option == 4:
+        print("Du har valgt alternativ 4 - (Avslutte programemt)")
+
+print()
+menu()
+option = int(input("Skriv inn ditt alternativ"))
