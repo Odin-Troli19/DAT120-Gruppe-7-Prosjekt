@@ -266,3 +266,22 @@ def åpnefilen(liste):
 
 print(ny_kategori())
 
+
+#G
+class Sted:
+    def __init__(self, id, navn, adresse):
+        self.id = id
+        self.navn = navn
+        self.adresse = adresse
+
+    def __str__(self):
+        return f"Id: {self.id}, Navn: {self.navn}, Adresse: {self.adresse}"
+
+#H
+def nytt_sted():
+    id = input("Oppgi id:")
+    navn = input("Skriv inn navnet:")
+    adresse = input("Skriv inn gateadresse, postnummer og poststed:")
+    return Sted(id, navn, adresse)
+
+print(nytt_sted())
