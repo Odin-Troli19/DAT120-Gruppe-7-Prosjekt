@@ -251,7 +251,17 @@ def Kategori_i_fil(liste):
     tekstfil.close()
     
 #E Leser inn
+def åpnefilen(liste):
+# åpne filen og les innholdet i en liste
+    with open('kategorier.txt', 'r') as fp:
+        for line in fp:
+        # fjerne linebreak fra et nåværende navn
+        # linebreak er det siste tegnet i hver linje
+            splittet = line.strip().split(";")
+            a = Kategori(splittet[0], splittet[1], splittet[2], splittet[3])
 
+        # legge til gjeldende element i listen
+            liste.append(a)
     
 
 print(ny_kategori())
