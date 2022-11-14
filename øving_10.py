@@ -285,3 +285,177 @@ def nytt_sted():
     return Sted(id, navn, adresse)
 
 print(nytt_sted())
+
+
+
+#I
+def lagre_lese_sted():
+    s = open("test_fil.txt", "r+")
+    print(s.readline())
+    s.close()
+    return s
+
+#J      
+def skrivUt_sted(liste, overskrift=""):
+    print(overskrift)
+    indeks = 1
+    for sted in liste:
+        print(f"{indeks}: {sted}")
+        indeks += 1
+
+#K
+class avtale_2:
+  def __init__(self, tittel, sted, start, varighet,kategori):
+    self.tittel = tittel
+    self.sted = sted
+    self.start = start
+    self.varighet = varighet
+    self.kategori = kategori
+    
+    
+def legg_til_kategori():
+    ny_kategori = None
+    print("Skriv en ny kategori til systemet(id, navn, prioritet i tall(1 til 3)): ")
+    kategori_id = input("Skriv in ID: ")
+    kategori_navn = input("Skriv in navnet: ")
+    kategori_prioritet = int(input("Skriv in prioritet (som tall, 1 til 3): "))
+    ny_kategori = kategori(kategori_id,kategori_navn,kategori_prioritet)
+    
+    ny_kategori = avtale_2()
+    return ny_kategori
+
+#L
+def lagrer_kategori_sted():
+    liste = list()
+    tekstfil = open("avtalene.txt", "w")
+    for avtale in liste:
+        tekstfil.write(f"{avtale.tittel};{avtale.sted};{avtale.start};{avtale.varighet};{kategori.kategori};{sted.sted}\n")
+    tekstfil.close()
+  
+liste = list()   
+def leserinnavtale(liste):
+    with open('avtalene.txt', 'r') as fp:
+        for line in fp:
+            splittet = line.strip().split(";")
+            a = Avtale(splittet[4], splittet[3], splittet[0], splittet[1],splittet[2])
+
+            liste.append(a)
+
+#M
+def menu ():
+    min_liste = list()
+   
+    while True:
+        print("[1] Lese inn avtale.")
+        print("[2] Skrive inn avtale til fil.")
+        print("[3] Skrive inn ny avtale")
+        print("[4] Skrive ut alle avtaler.")
+        print("[5] Endre en avtale.")
+        print("[6] Slett avtale.")
+        print("[7] Legg til kategorier.")
+        print("[8] Legg en kategori til avtalen.")
+        print("[9] Finne avtaler som foregår et bestemt sted .")
+        print("[10] Avslutte programmet")
+    
+        print("Du må ta valgene til venstre for å velge et alternativ")
+
+        option = int(input("Skriv inn ditt alternatv:"))
+        if option == 1:
+            print("Du har valgt alternativ 1 - (Lese inn avtale)")
+            åpnefilen(min_liste)
+        elif option == 2:
+            print("Du har valgt alternativ 2 - (Skrive inn avtale til fil)")
+            setteLista_ifile(min_liste)
+        elif option == 3:
+            print("Du har vlagt alternativ 3 - (Skrive inn ny avtale)")
+            min_liste.append(ny_avtale())
+        elif option == 4:
+            avtale_funksjon(min_liste, "hallo")
+        elif option == 5:
+            indeks = int(input("hvilken avtale vil dere endre?")) - 1
+            endre_avtale_2(min_liste[indeks])
+        elif option == 6:
+            slett_avtale(min_liste)
+        elif option == 7:
+            print("Du har valgt alternativ 7 - Legg til kategorier.")
+            legg_til_kategori(min_liste)
+            lagrer_kategori_sted(min_liste)
+        elif option == 8:
+            legg_kategori_til_avtalen(min_liste)
+        elif option == 9:
+            finne_alle_avtaler_på_et_sted(min_liste)
+        elif option == 10:
+            print("Du har valgt alternativ 4 - (Avslutte programemt)")
+            break
+        
+
+def slett_avtale_2(liste):
+    indeksenTil = int(input("Hvilke indeksen til lisa vil du slette ? ")) -1
+
+    liste.pop(indeksenTil)
+
+def endre_avtale_2(Avtale):
+    print("Hvilken nøkkel vil du endre")
+
+    valg = input("Skriv inn nøkkelen du vil endre:")
+    if valg.lower() == "tittel":
+        ny_tittel = input("skriv inn ny tittel")
+        Avtale.tittel = ny_tittel
+
+    elif valg.lower() == "sted":
+        nytt_sted = input("Skriv nye stedet")
+        Avtale.sted = nytt_sted
+    
+    elif valg.lower() == "starttidspunkt":
+        start_tidspunkt_1 = input("Angi dato og tidspunt på formatet. dd:mm:yyyy tt:mm")
+        nytt_starttidspunkt = dt.datetime.strptime(start_tidspunkt_1, "%d:%m:%Y %H:%M")
+        Avtale.start = nytt_starttidspunkt
+
+    elif valg.lower() == "varighet":
+        ny_varighet = int(input("angi den nye varigheten"))
+        Avtale.varighet = ny_varighet
+    else: 
+        print("Det du satt inn stemte ikke, prøv på nytt.")
+
+
+if __name__=="__main__":
+
+    menu()
+        
+    
+#N
+def nytt_sted(): 
+    ny_stedet = None
+    while not ny_stedet:
+        try:
+            ID = input("Angi ID : ")
+            navn = input("Angi navn : ")
+            a = input("Angi gateadresse ")
+            b = int(input("Angi postnummer"))
+            c = input("Angi poststed ")
+            adresse = a+b+c
+            ny_stedet = sted(ID,navn,adresse)
+        except Exception as error:
+                    print(error)
+    return ny_stedet
+    
+#O
+def legg_kategori_til_avtalen():
+    print("hello")
+   
+   
+#P
+min_liste = list()
+def finne_alle_avtaler_på_et_sted():
+    a = input("hvilket sted søker du etter? ")
+    if a in min_liste:
+        filter_objekt = filter(lambda a: 'sted:' in a, min_liste)
+        print(list(filter_objekt))
+    else:
+        print('Det finnes ikke !')
+        
+#Q
+def __str__(self):
+  return f"tittel: {self.tittel}, Sted: {self.sted}, starttidspunkt: {self.start}, Varighet: {self.varighet}min, kategori:{kategori.kategori}, sted: {sted.sted} "
+    
+   
